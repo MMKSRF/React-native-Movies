@@ -25,4 +25,27 @@ export const fetchMovies = async ({query}:{query: string} )=> {
 }
 
 
-// /discover/movie
+
+export const fetchMovieById = async (id: any) => {
+  const endpoint = `${TMDB_CONFIG.BASE_URL}/movie/${id}`;
+  const response = await fetch(endpoint, {
+    method: 'GET',
+    headers: TMDB_CONFIG.headers,
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to fetch movie: ' + response.statusText);
+  }
+
+  const data = await response.json();
+  return data; // returns single movie object
+};
+
+
+
+
+
+
+
+
+// /discover/moviezxgrtgyft 
